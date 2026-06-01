@@ -99,6 +99,7 @@ model = MutlipleLinearRegression(learning_rate=0.1, epochs=1000)
 model.fit(X_train, y_train)
 
 # --- Learned vs True ---
+assert model.weight is not None, "Model must be fitted before accessing weights"
 w = model.weight.flatten()
 print(f"\n{'Parameter':<12} {'Learned':<12} {'True':<12}")
 print("-" * 36)

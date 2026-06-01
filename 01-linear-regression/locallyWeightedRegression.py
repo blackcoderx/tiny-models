@@ -101,8 +101,15 @@ class LocallyWeightedRegression:
 
         weightMatrix = build_weight_matrix(weights)  # (m, m)
 
-        XtW = self.featureMatrix.T @ weightMatrix  # (2, m)
-        XtWX = XtW @ self.featureMatrix  # (2, 2) — small, cheap to solve
+        featureMatrix = self.featureMatrix
+
+        if featureMatrix is None:
+            raise RuntimeError("Model not fitted. Please call fit() before predict().")
+
+        XtW = featureMatrix.T @ weightMatrix  # (2, m)
+        XtWX = XtW @ featureMatrix  # (2, 2) — small, cheap to solve
+
+        assert self.y_train is not None
         XtWy = XtW @ self.y_train  # (2, 1)
         theta = np.linalg.solve(XtWX, XtWy)  # (2, 1)
 
