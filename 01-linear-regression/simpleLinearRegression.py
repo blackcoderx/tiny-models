@@ -1,19 +1,22 @@
 import numpy as np
 from sklearn.linear_model import LinearRegression as SklearnLR
+from sklearn.datasets import load_diabetes
 
 np.random.seed(42)
 
 
-def generateSynData(rows):
-    noise = np.random.randn(rows, 1)
-    X = 2 * np.random.rand(rows, 1)
-    y = 4 + (3 * X) + noise
-    # output = the bias + the weight times input features + noise
+def loadDataset():
+    diabetes = load_diabetes()
+
+    bmiIndex = diabetes.feature_names.index("bmi")
+
+    X = diabetes.data[:, bmiIndex].reshape(-1, 1)
+    y = diabetes.target.reshape(-1, 1)
 
     return X, y
 
 
-X, actualY = generateSynData(1000)
+X, actualY = loadDataset()
 
 
 def cost_function(numberOfExamples, error):
@@ -64,8 +67,8 @@ class LinearRegression:
 
     def fit(self, X, actualY):
         numberOfExamples = X.shape[0]
-        self.weight = np.random.randn()
-        self.bias = np.random.randn()
+        self.weight = 0.0
+        self.bias = 0.0
 
         print(f"{'Epoch':<10} {'Loss':<15} {'Weight':<12} {'Bias':<12}")
         print("--" * 25)
@@ -93,7 +96,9 @@ class LinearRegression:
         return X * self.weight + self.bias
 
 
-model = LinearRegression(learning_rate=0.1, epochs=1000)
+# Learning rate is usaully 0.1
+# 1 was used here so that our model with match sklearn's model
+model = LinearRegression(learning_rate=1, epochs=10000)
 model.fit(X_train, y_train)
 
 # --- Evaluate ---
@@ -111,7 +116,7 @@ print("--" * 25)
 
 
 sk_model = SklearnLR()
-sk_model.fit(X, actualY)
+sk_model.fit(X_train, y_train)
 
 sk_w = sk_model.coef_[0][0]
 sk_b = sk_model.intercept_[0]
@@ -120,6 +125,5 @@ print(f"{'Model':<20} {'Weight (w)':<15} {'Bias (b)':<15}")
 print("--" * 25)
 print(f"{'Ours':<20} {model.weight:<15.6f} {model.bias:<15.6f}")
 print(f"{'Sklearn':<20} {sk_w:<15.6f} {sk_b:<15.6f}")
-print(f"{'True values':<20} {'3.000000':<15} {'4.000000':<15}")
 print(f"\nDifference w: {abs(model.weight - sk_w):.8f}")
 print(f"Difference b: {abs(model.bias - sk_b):.8f}")
