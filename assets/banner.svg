@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 150" width="900" height="150" role="img" aria-label="TiNy MoDEls">
+  <style>
+    @keyframes bounce {
+      0%   { transform: translateY(0); }
+      20%  { transform: translateY(-22px); }
+      35%  { transform: translateY(0); }
+      45%  { transform: translateY(-9px); }
+      55%  { transform: translateY(0); }
+      100% { transform: translateY(0); }
+    }
+
+    .letter {
+      animation: bounce 2s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center bottom;
+    }
+    .l0  { animation-delay: 0s; }
+    .l1  { animation-delay: 0.12s; }
+    .l2  { animation-delay: 0.24s; }
+    .l3  { animation-delay: 0.36s; }
+    .l4  { animation-delay: 0.60s; }
+    .l5  { animation-delay: 0.72s; }
+    .l6  { animation-delay: 0.84s; }
+    .l7  { animation-delay: 0.96s; }
+    .l8  { animation-delay: 1.08s; }
+    .l9  { animation-delay: 1.20s; }
+  </style>
+
+  <!-- Background -->
+  <rect width="900" height="150" fill="#ffffff"/>
+
+  <!--
+    "TiNy MoDEls" — 10 visible chars (space skipped), each animated individually.
+    Font: 68px bold sans-serif. Total estimated width ~390px, centered at x=450.
+    Baseline y=102. Chars advance from x=255.
+  -->
+
+  <!-- T -->
+  <text class="letter l0" x="255" y="102"
+    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="68" font-weight="700" fill="#2563eb">T</text>
+
+  <!-- i -->
+  <text class="letter l1" x="296" y="102"
+    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="68" font-weight="700" fill="#2563eb">i</text>
+
+  <!-- N -->
+  <text class="letter l2" x="316" y="102"
+    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="68" font-weight="700" fill="#2563eb">N</text>
+
+  <!-- y -->
+  <text class="letter l3" x="363" y="102"
+    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="68" font-weight="700" fill="#2563eb">y</text>
+
+  <!-- (space gap — no element, delay l4 skipped visually) -->
+
+  <!-- M -->
+  <text class="letter l4" x="418" y="102"
+    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="68" font-weight="700" fill="#2563eb">M</text>
+
+  <!-- o -->
+  <text class="letter l5" x="470" y="102"
+    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="68" font-weight="700" fill="#2563eb">o</text>
+
+  <!-- D -->
+  <text class="letter l6" x="513" y="102"
+    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="68" font-weight="700" fill="#2563eb">D</text>
+
+  <!-- E -->
+  <text class="letter l7" x="559" y="102"
+    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="68" font-weight="700" fill="#2563eb">E</text>
+
+  <!-- l -->
+  <text class="letter l8" x="600" y="102"
+    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="68" font-weight="700" fill="#2563eb">l</text>
+
+  <!-- s -->
+  <text class="letter l9" x="620" y="102"
+    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="68" font-weight="700" fill="#2563eb">s</text>
+</svg>
