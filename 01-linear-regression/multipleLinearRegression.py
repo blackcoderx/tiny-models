@@ -106,7 +106,7 @@ evaluate(y_test, model.predict(X_test), "Testing Set")
 sk = SklearnLR()
 sk.fit(X_train[:, :-1], y_train)
 evaluate(y_train, sk.predict(X_train[:, :-1]), "Sklearn Training Set")
-evaluate(y_test, sk.predict(X_test[:, :-1]), "Sklearn Test Set")
+evaluate(y_test, sk.predict(X_test[:, :-1]), "Sklearn Testing Set")
 
 # --- Learned vs Sklearn ---
 assert model.weight is not None, "Model must be fitted before accessing weights"
