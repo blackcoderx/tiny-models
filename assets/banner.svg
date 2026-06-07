@@ -1,89 +1,55 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 150" width="900" height="150" role="img" aria-label="TiNy MoDEls">
-  <style>
-    @keyframes bounce {
-      0%   { transform: translateY(0); }
-      20%  { transform: translateY(-22px); }
-      35%  { transform: translateY(0); }
-      45%  { transform: translateY(-9px); }
-      55%  { transform: translateY(0); }
-      100% { transform: translateY(0); }
-    }
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Space Grotesk';
+        font-style: normal;
+        font-weight: 700;
+        src: url('data:font/truetype;base64,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') format('truetype');
+      }
 
-    .letter {
-      animation: bounce 2s ease-in-out infinite;
-      transform-box: fill-box;
-      transform-origin: center bottom;
-    }
-    .l0  { animation-delay: 0s; }
-    .l1  { animation-delay: 0.12s; }
-    .l2  { animation-delay: 0.24s; }
-    .l3  { animation-delay: 0.36s; }
-    .l4  { animation-delay: 0.60s; }
-    .l5  { animation-delay: 0.72s; }
-    .l6  { animation-delay: 0.84s; }
-    .l7  { animation-delay: 0.96s; }
-    .l8  { animation-delay: 1.08s; }
-    .l9  { animation-delay: 1.20s; }
-  </style>
+      @keyframes bounce {
+        0%   { transform: translateY(0); }
+        20%  { transform: translateY(-22px); }
+        35%  { transform: translateY(0); }
+        45%  { transform: translateY(-9px); }
+        55%  { transform: translateY(0); }
+        100% { transform: translateY(0); }
+      }
+
+      .letter {
+        animation: bounce 2s ease-in-out infinite;
+        transform-box: fill-box;
+        transform-origin: center bottom;
+        font-family: 'Space Grotesk', 'Trebuchet MS', sans-serif;
+        font-size: 68px;
+        font-weight: 700;
+        fill: #2563eb;
+      }
+      .l0  { animation-delay: 0s; }
+      .l1  { animation-delay: 0.12s; }
+      .l2  { animation-delay: 0.24s; }
+      .l3  { animation-delay: 0.36s; }
+      .l4  { animation-delay: 0.60s; }
+      .l5  { animation-delay: 0.72s; }
+      .l6  { animation-delay: 0.84s; }
+      .l7  { animation-delay: 0.96s; }
+      .l8  { animation-delay: 1.08s; }
+      .l9  { animation-delay: 1.20s; }
+    </style>
+  </defs>
 
   <!-- Background -->
   <rect width="900" height="150" fill="#ffffff"/>
 
-  <!--
-    "TiNy MoDEls" — 10 visible chars (space skipped), each animated individually.
-    Font: 68px bold sans-serif. Total estimated width ~390px, centered at x=450.
-    Baseline y=102. Chars advance from x=255.
-  -->
-
-  <!-- T -->
-  <text class="letter l0" x="255" y="102"
-    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-size="68" font-weight="700" fill="#2563eb">T</text>
-
-  <!-- i -->
-  <text class="letter l1" x="296" y="102"
-    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-size="68" font-weight="700" fill="#2563eb">i</text>
-
-  <!-- N -->
-  <text class="letter l2" x="316" y="102"
-    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-size="68" font-weight="700" fill="#2563eb">N</text>
-
-  <!-- y -->
-  <text class="letter l3" x="363" y="102"
-    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-size="68" font-weight="700" fill="#2563eb">y</text>
-
-  <!-- (space gap — no element, delay l4 skipped visually) -->
-
-  <!-- M -->
-  <text class="letter l4" x="418" y="102"
-    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-size="68" font-weight="700" fill="#2563eb">M</text>
-
-  <!-- o -->
-  <text class="letter l5" x="470" y="102"
-    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-size="68" font-weight="700" fill="#2563eb">o</text>
-
-  <!-- D -->
-  <text class="letter l6" x="513" y="102"
-    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-size="68" font-weight="700" fill="#2563eb">D</text>
-
-  <!-- E -->
-  <text class="letter l7" x="559" y="102"
-    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-size="68" font-weight="700" fill="#2563eb">E</text>
-
-  <!-- l -->
-  <text class="letter l8" x="600" y="102"
-    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-size="68" font-weight="700" fill="#2563eb">l</text>
-
-  <!-- s -->
-  <text class="letter l9" x="620" y="102"
-    font-family="'SF Pro Display', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
-    font-size="68" font-weight="700" fill="#2563eb">s</text>
+  <!-- T --><text class="letter l0" x="255" y="102">T</text>
+  <!-- i --><text class="letter l1" x="296" y="102">i</text>
+  <!-- N --><text class="letter l2" x="316" y="102">N</text>
+  <!-- y --><text class="letter l3" x="363" y="102">y</text>
+  <!-- M --><text class="letter l4" x="418" y="102">M</text>
+  <!-- o --><text class="letter l5" x="470" y="102">o</text>
+  <!-- D --><text class="letter l6" x="513" y="102">D</text>
+  <!-- E --><text class="letter l7" x="559" y="102">E</text>
+  <!-- l --><text class="letter l8" x="600" y="102">l</text>
+  <!-- s --><text class="letter l9" x="620" y="102">s</text>
 </svg>
