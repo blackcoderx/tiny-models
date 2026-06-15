@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn.datasets import load_breast_cancer
 from sklearn.linear_model import LogisticRegression as SklearnLR
 
 np.random.seed(42)
@@ -8,15 +9,16 @@ def sigmoid(z):
     return 1 / (1 + np.exp(-z))
 
 
-def generateSynData(rows):
-    X = 2 * np.random.rand(rows, 1)
-    z = 3 * X - 4
-    prob = sigmoid(z)
-    y = (np.random.rand(rows, 1) < prob).astype(float)
-    return X, y
+dataset = load_breast_cancer()
+feature_index = dataset.feature_names.tolist().index("mean radius")
+X = dataset.data[:, feature_index].reshape(-1, 1)
+actualY = dataset.target.reshape(-1, 1).astype(float)
 
+# Standardize the feature so gradient descent converges reliably.
+X = (X - X.mean()) / X.std()
 
-X, actualY = generateSynData(2000)
+print(f"Dataset: Breast Cancer Wisconsin ({dataset.target_names[0]} vs {dataset.target_names[1]})")
+print(f"Feature: mean radius")
 
 
 def cost_function(y, y_hat):
@@ -127,7 +129,7 @@ print("--" * 25)
 
 # C=1e10 disables sklearn's default regularization for a fair comparison
 sk_model = SklearnLR(C=1e10, solver="lbfgs")
-sk_model.fit(X, actualY.ravel())
+sk_model.fit(X_train, y_train.ravel())
 
 sk_w = sk_model.coef_[0][0]
 sk_b = float(np.ravel(sk_model.intercept_)[0])
@@ -136,7 +138,6 @@ print(f"{'Model':<20} {'Weight (w)':<15} {'Bias (b)':<15}")
 print("--" * 25)
 print(f"{'Ours':<20} {model.weight:<15.6f} {model.bias:<15.6f}")
 print(f"{'Sklearn':<20} {sk_w:<15.6f} {sk_b:<15.6f}")
-print(f"{'True values':<20} {'3.000000':<15} {'-4.000000':<15}")
 print(f"\nDifference w: {abs(model.weight - sk_w):.8f}")
 print(
     f"Difference b: {abs((model.bias if model.bias is not None else 0.0) - sk_b):.8f}"
