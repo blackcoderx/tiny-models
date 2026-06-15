@@ -17,8 +17,10 @@ actualY = dataset.target.reshape(-1, 1).astype(float)
 # Standardize the feature so gradient descent converges reliably.
 X = (X - X.mean()) / X.std()
 
-print(f"Dataset: Breast Cancer Wisconsin ({dataset.target_names[0]} vs {dataset.target_names[1]})")
-print(f"Feature: mean radius")
+print(
+    f"Dataset: Breast Cancer Wisconsin ({dataset.target_names[0]} vs {dataset.target_names[1]})"
+)
+print("Feature: mean radius")
 
 
 def cost_function(y, y_hat):
